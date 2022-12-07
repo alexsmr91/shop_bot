@@ -1,16 +1,26 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from telebot import TeleBot
+from settings import config
+from handlers.handler_main import HandlerMain
 
 
-# Press the green button in the gutter to run the script.
+class TelBot:
+
+    __version__ = config.VERSION
+    __author__ = config.AUTHOR
+
+    def __init__(self):
+        self.token = config.TOKEN
+        self.bot = TeleBot(self.token)
+        self.handler = HandlerMain(self.bot)
+
+    def start(self):
+        self.handler.handle()
+
+    def run_bot(self):
+        self.start()
+        self.bot.polling(none_stop=True)
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    bot = TelBot()
+    bot.run_bot()
