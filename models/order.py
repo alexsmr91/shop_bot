@@ -31,5 +31,8 @@ class Order(Base):
                         uselist=True,
                         cascade='delete,all'))
 
-    def __str__(self):
+    def __repr__(self):
+        """
+        Метод возвращает формальное строковое представление указанного объекта
+        """
         return f"{self.quantity} {self.data}"

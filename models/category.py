@@ -17,5 +17,8 @@ class Category(Base):
     name = Column(String, index=True)
     is_active = Column(Boolean)
 
-    def __str__(self):
+    def __repr__(self):
+        """
+        Метод возвращает формальное строковое представление указанного объекта
+        """
         return self.name
