@@ -5,10 +5,10 @@ from emoji import emojize
 # токен выдается при регистрации приложения
 TOKEN = os.environ['TG_TOKEN']
 # название БД
-NAME_DB = 'products.sqlite'
+NAME_DB = 'products.db'
 # версия приложения
 VERSION = '0.0.1'
-# автор приложения
+# автор приложния
 AUTHOR = 'User'
 
 # родительская директория
